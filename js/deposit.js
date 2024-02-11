@@ -1,4 +1,4 @@
-document.getElementById('deposit-btn').addEventListener('click', function() {
+document.getElementById('deposit-btn').addEventListener('click', function () {
     const depositField = document.getElementById('user-deposit');
     const depositString = depositField.value;
     const deposit = parseFloat(depositString)
@@ -9,8 +9,11 @@ document.getElementById('deposit-btn').addEventListener('click', function() {
     const totalDeposit = parseFloat(totalDepositString)
     // console.log(totalDeposit);
 
-    if(depositString == '') {
+    if (depositString == '') {
         alert('Please insert amount')
+        return;
+    } else if (deposit < 1) {
+        alert('Please give positive value');
         return;
     }
 

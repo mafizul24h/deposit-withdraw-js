@@ -1,4 +1,4 @@
-document.getElementById('withdraw-btn').addEventListener('click', function() {
+document.getElementById('withdraw-btn').addEventListener('click', function () {
     const withdrawField = document.getElementById('user-withdraw');
     const withdraw = parseFloat(withdrawField.value);
     // console.log(withdraw);
@@ -11,18 +11,21 @@ document.getElementById('withdraw-btn').addEventListener('click', function() {
     const totalBalance = parseFloat(totalBalanceElement.innerText);
     // console.log(totalBalance);
 
-    if(withdrawField.value === '') {
+    if (withdrawField.value === '') {
         alert('Please insert amount');
+        return;
+    } else if (withdraw < 1) {
+        alert('Please give positive value');
         return;
     }
 
-    if(totalBalance >= withdraw) {
+    if (totalBalance >= withdraw) {
         const withdrawAmount = totalWithdraw + withdraw;
         withdrawElement.innerText = withdrawAmount.toFixed(2);
 
         const totalAmountBlance = totalBalance - withdraw;
         totalBalanceElement.innerText = totalAmountBlance.toFixed(2);
-    }else {
+    } else {
         alert('Your balance is insufficient');
     }
 
